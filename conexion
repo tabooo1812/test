@@ -7,6 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+/*PRUEBA DE CONECTIVIDAD*/
+
+
+
 /*
 mysql-connector-java-5.1.23-bin.jar es necesario este conector para 
 clase de conección a la base de datos
