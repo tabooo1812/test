@@ -1,0 +1,52 @@
+package funciones;
+
+import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+/*
+mysql-connector-java-5.1.23-bin.jar es necesario este conector para 
+clase de conección a la base de datos
+*/
+public class conexion {
+    public String db="app";
+    public String url="jdbc:mysql://localhost/" +db;
+    public String user="root";
+    public String pass="";
+
+/*
+Método constructor
+*/
+    public conexion() {
+    }
+
+/*
+Método para conectarme a la base de datos
+*/
+    public Connection conectar(){
+//Instancia
+        Connection link=null;
+        
+        try {
+            //La ruta del Class.forName la encuentro en las librerias en el JAR mysql-connector-java-5.1.23-bin.jar
+            //en la sub división org.gjt.mm.mysql.Driver
+            Class.forName("org.gjt.mm.mysql.Driver");
+            
+            //Con la variable link, creo un enlace hacia la base de datos
+            link=DriverManager.getConnection(this.url, this.user, this.pass);
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showConfirmDialog(null, e);
+            
+        }
+        
+        return link;
+    }
+    
+   
+    
+    
+}
